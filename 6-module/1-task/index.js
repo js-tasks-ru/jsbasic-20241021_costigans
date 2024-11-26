@@ -1,3 +1,5 @@
+import createElement from '../../assets/lib/create-element.js';
+
 /**
  * Компонент, который реализует таблицу
  * с возможностью удаления строк
@@ -12,7 +14,6 @@
  *      }
  *
  */
-import createElement from '../../assets/lib/create-element.js';
 
 export default class UserTable {
   elem = null;
@@ -57,14 +58,14 @@ export default class UserTable {
   }
 
   #onButtonClick = ({ target }) => {
-    if (target.tagName !== "BUTTON") {
+    if (target.tagName !== 'BUTTON') {
       return;
     }
-    target.closest("tr").remove();
+    target.closest('tr').remove();
   };
 
   #render() {
     this.elem = createElement(this.#template());
-    this.elem.addEventListener("click", this.#onButtonClick);
+    this.elem.addEventListener('click', this.#onButtonClick);
   }
 }
